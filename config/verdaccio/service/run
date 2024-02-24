@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv bash
+
+verdaccio --config /verdaccio/conf/config.yml
