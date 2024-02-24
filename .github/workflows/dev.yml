@@ -1,4 +1,4 @@
-name: Build and push DEV
+name: DEV
 
 env:
   REGISTRY: ghcr.io
@@ -34,7 +34,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ env.ACCESS_TOKEN }}
 
       - uses: actions/checkout@v1
       - name: Build and push ${{ env.IMAGE_NAME }} image
