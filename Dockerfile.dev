@@ -17,6 +17,7 @@ ARG LANG=en_US.UTF-8
 ARG LANGUAGE=en_US:en
 ARG LC_ALL=en_US.UTF-8
 ARG S6_OVERLAY_VERSION=3.1.5.0
+ARG S6_OVERLAY_GITHUB=https://github.com/just-containers/s6-overlay
 #
 # %environment
 #
@@ -41,10 +42,10 @@ RUN ln -snf "/usr/share/zoneinfo/${TZ}" /etc/localtime \
 COPY --chmod=0755 ./provision/scripts/dev/* /tmp/scripts
 COPY --chmod=0755 ./provision/functions/* /usr/local/bin/fn
 ADD https://github.com/jhwohlgemuth/my-shell-setup.git "${DOTFILES}"
-ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp
-ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp
-ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-symlinks-noarch.tar.xz /tmp
-ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-symlinks-arch.tar.xz /tmp
+ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz" /tmp
+ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz" /tmp
+ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-symlinks-noarch.tar.xz" /tmp
+ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-symlinks-arch.tar.xz" /tmp
 #
 # %post
 #
