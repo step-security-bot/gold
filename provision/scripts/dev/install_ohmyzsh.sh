@@ -7,7 +7,6 @@ main() {
     # Install oh-my-zsh
     #
     sh -c "$(curl https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
-        -p colored-man-pages \
         -p encode64 \
         -p fzf \
         -p git \
