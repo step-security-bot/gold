@@ -14,7 +14,7 @@ on:
       - completed
   push:
     branches:
-      - master
+      - main
     paths:
       - 'Dockerfile.rust'
       - 'provision/scripts/install_wasm_runtimes.sh'

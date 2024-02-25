@@ -14,7 +14,7 @@ on:
       - completed
   push:
     branches:
-      - master
+      - main
     paths:
       - 'Dockerfile.web'
       - 'provision/scripts/web/**'
