@@ -9,6 +9,17 @@ requires \
     opam \
     pkg-config \
     ruby
+install_jupyter_kernel() {
+    #
+    # Install Jupyter kernel
+    #
+    eval "$(opam env)"
+    opam install jupyter
+    eval "$(opam env)"
+    ocaml-jupyter-opam-genspec
+    jupyter kernelspec install --name "OCaml" "$(opam var share)/jupyter"
+    sed -i 's/OCaml default/OCaml/' /usr/local/share/jupyter/kernels/ocaml/kernel.json
+}
 main() {
     export OPAMYES=1
     # ocaml-jupyter does not support OCaml 5.0
@@ -25,14 +36,6 @@ main() {
         utop
     eval "$(opam env)"
     opam upgrade
-    eval "$(opam env)"
-    #
-    # Install Jupyter kernel
-    #
-    opam install jupyter
-    eval "$(opam env)"
-    ocaml-jupyter-opam-genspec
-    jupyter kernelspec install --name "OCaml" "$(opam var share)/jupyter"
-    sed -i 's/OCaml default/OCaml/' /usr/local/share/jupyter/kernels/ocaml/kernel.json
+    install_jupyter_kernel
 }
 main "$@"

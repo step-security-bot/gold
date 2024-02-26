@@ -3,7 +3,7 @@ FROM ghcr.io/jhwohlgemuth/rust:latest
 # %labels
 #
 LABEL author="Jason Wohlgemuth"
-LABEL org.opencontainers.image.source https://github.com/jhwohlgemuth/env
+LABEL org.opencontainers.image.source https://github.com/jhwohlgemuth/gold
 #
 # %arguments
 #

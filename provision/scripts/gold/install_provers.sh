@@ -2,8 +2,12 @@
 set -e
 
 requires \
+    curl \
     git \
-    opam
+    make \
+    opam \
+    python \
+    unzip
 main() {
     export OPAMYES=1
     #
