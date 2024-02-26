@@ -25,7 +25,7 @@ main() {
         echo "Installing extensions for ${ARG} VS Code instance"
         EXTENSIONS="$(jq -r ".${ARG}[]" "${EXTENSIONS_JSON}")"
         for EXTENSION in ${EXTENSIONS}; do
-            code-server --config $CONFIG --install-extension "${EXTENSION}" --force
+            code-server --config "${CONFIG}" --install-extension "${EXTENSION}" --force
         done
     done
 }

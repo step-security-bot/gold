@@ -24,8 +24,8 @@ ARG S6_OVERLAY_GITHUB=https://github.com/just-containers/s6-overlay
 ENV TZ=America/New_York
 ENV TERM=xterm-256color
 ENV DOTFILES="${HOME}/.dotfiles"
-ENV PATH="${PATH}:${HOME}/.nix-profile/bin"
 ENV PATH="${PATH}:/usr/local/bin/fn"
+ENV PATH="${PATH}:${HOME}/.nix-profile/bin"
 #
 # %setup
 #
