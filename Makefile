@@ -39,8 +39,8 @@ publish:
 	@for image in $(IMAGES) ; do \
 		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION}
 		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:latest
-        docker push ${CONTAINER_REGISTRY}/${REPO}/$$image ; \
-    done
+		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image ; \
+	done
 	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
 	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:latest
 	docker push ${CONTAINER_REGISTRY}/${REPO}/gold
