@@ -11,7 +11,7 @@ LABEL org.opencontainers.image.source=https://github.com/jhwohlgemuth/gold
 #
 # %arguments
 #
-ARG VERSION=0.0.0
+ARG VERSION=0.0.1
 ARG HOME=/root
 ARG DEBIAN_FRONTEND=noninteractive
 ARG LANG=en_US.UTF-8
