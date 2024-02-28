@@ -38,14 +38,10 @@ build-image:format
 publish:
 	@for image in $(IMAGES) ; do \
 		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION}
-		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:latest
-		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION}
-		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:latest ; \
+		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION} ; \
 	done
 	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
-	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:latest
 	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
-	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:latest
 
 .PHONY: gold
 gold: format
