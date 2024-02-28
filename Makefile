@@ -1,12 +1,6 @@
 #
 # Development tasks
 #
-.PHONY: lint
-lint: check
-	@for image in $(IMAGES) ; do \
-        hadolint ./Dockerfile.$$image $(IGNORE_RULES) ; \
-    done
-	hadolint ./Dockerfile $(IGNORE_RULES)
 
 .PHONY: check
 check:
@@ -16,6 +10,13 @@ check:
 	@for fn in $(FUNCTIONS) ; do \
         shellcheck $$fn; \
     done
+
+.PHONY: lint
+lint: check
+	@for image in $(IMAGES) ; do \
+        hadolint ./Dockerfile.$$image $(IGNORE_RULES) ; \
+    done
+	hadolint ./Dockerfile $(IGNORE_RULES)
 
 .PHONY: format
 format:
@@ -36,8 +37,12 @@ build-image:format
 .PHONY: publish
 publish:
 	@for image in $(IMAGES) ; do \
+		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION}
+		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:latest
         docker push ${CONTAINER_REGISTRY}/${REPO}/$$image ; \
     done
+	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
+	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:latest
 	docker push ${CONTAINER_REGISTRY}/${REPO}/gold
 
 .PHONY: gold
@@ -62,6 +67,7 @@ web:
 #
 # Build variables
 #
+VERSION = 0.0.1
 CONTAINER_REGISTRY = ghcr.io
 REPO = jhwohlgemuth
 IMAGES = \
