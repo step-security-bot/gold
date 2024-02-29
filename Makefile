@@ -34,16 +34,20 @@ format:
 publish:
 	@for image in $(IMAGES) ; do \
 		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION} ; \
+		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:latest ; \
 	done
 	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
+	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:latest
 
 .PHONY: build-image
 build-image:format
 	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK}:${VERSION} -f ./Dockerfile.${TASK} .
+	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK}:latest -f ./Dockerfile.${TASK} .
 
 .PHONY: gold
 gold: format
 	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION} -f ./Dockerfile .
+	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/gold:latest -f ./Dockerfile .
 
 .PHONY: dev
 dev:
