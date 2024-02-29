@@ -30,22 +30,20 @@ format:
         dos2unix $$fn; \
     done
 
-.PHONY: build-image
-build-image:format
-	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK} -f ./Dockerfile.${TASK} .
-
 .PHONY: publish
 publish:
 	@for image in $(IMAGES) ; do \
-		docker tag ${CONTAINER_REGISTRY}/${REPO}/$$image ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION}
 		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION} ; \
 	done
-	docker tag ${CONTAINER_REGISTRY}/${REPO}/gold ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
 	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
+
+.PHONY: build-image
+build-image:format
+	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK}:${VERSION} -f ./Dockerfile.${TASK} .
 
 .PHONY: gold
 gold: format
-	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/gold -f ./Dockerfile .
+	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION} -f ./Dockerfile .
 
 .PHONY: dev
 dev:
