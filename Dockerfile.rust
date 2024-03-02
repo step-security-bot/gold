@@ -4,6 +4,8 @@ FROM ghcr.io/jhwohlgemuth/notebook:latest
 #
 LABEL author="Jason Wohlgemuth"
 LABEL org.opencontainers.image.source=https://github.com/jhwohlgemuth/gold
+LABEL org.opencontainers.image.description="Robust development environment with Rust tooling installed"
+LABEL org.opencontainers.image.licenses=MIT
 #
 # %environment
 #

@@ -4,6 +4,8 @@ FROM ghcr.io/jhwohlgemuth/rust:latest
 #
 LABEL author="Jason Wohlgemuth"
 LABEL org.opencontainers.image.source https://github.com/jhwohlgemuth/gold
+LABEL org.opencontainers.image.description="Environment for working on provably correct software"
+LABEL org.opencontainers.image.licenses=MIT
 #
 # %arguments
 #

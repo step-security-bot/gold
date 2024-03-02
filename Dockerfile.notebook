@@ -4,6 +4,8 @@ FROM ghcr.io/jhwohlgemuth/dev:latest
 #
 LABEL author="Jason Wohlgemuth"
 LABEL org.opencontainers.image.source=https://github.com/jhwohlgemuth/gold
+LABEL org.opencontainers.image.description="Environment that provides code-server (VS Code) and JupyterLab servers"
+LABEL org.opencontainers.image.licenses=MIT
 #
 # %arguments
 #
