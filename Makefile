@@ -28,34 +28,60 @@ format:
 
 .PHONY: build-image
 build-image:format
-	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK}:${VERSION} -f ./Dockerfile.${TASK} .
-	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK}:latest -f ./Dockerfile.${TASK} .
+	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK}:$(VERSION) -f ./Dockerfile.${TASK} .
+	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK}:latest -f ./Dockerfile.${TASK} .
 
 .PHONY: gold
 gold: format
-	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION} -f ./Dockerfile .
-	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/gold:latest -f ./Dockerfile .
+	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold:$(VERSION) -f ./Dockerfile .
+	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold:latest -f ./Dockerfile .
+	
+.PHONY: gold-push
+gold-push:
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold:${VERSION}"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold:latest"
 
 .PHONY: dev
 dev:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
+	
+.PHONY: dev-push
+dev-push:
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev:${VERSION}"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev:latest"
 
 .PHONY: notebook
 notebook:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
+	
+.PHONY: notebook-push
+notebook-push:
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook:${VERSION}"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook:latest"
 
 .PHONY: rust
 rust:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
+	
+.PHONY: rust-push
+rust-push:
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust:${VERSION}"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust:latest"
 
 .PHONY: web
 web:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
+	
+.PHONY: web-push
+web-push:
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web:${VERSION}"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web:latest"
 #
 # Build variables
 #
-CONTAINER_REGISTRY = ghcr.io
-REPO = jhwohlgemuth
+VERSION = `cat VERSION`
+REGISTRY = ghcr.io
+GITHUB_ACTOR = jhwohlgemuth
 IMAGES = \
 	dev \
 	notebook \
