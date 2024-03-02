@@ -1,7 +1,3 @@
-#
-# Development tasks
-#
-
 .PHONY: check
 check:
 	@for script in $(SCRIPTS) ; do \
