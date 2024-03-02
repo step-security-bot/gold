@@ -30,15 +30,6 @@ format:
         dos2unix $$fn; \
     done
 
-.PHONY: publish
-publish:
-	@for image in $(IMAGES) ; do \
-		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:${VERSION} ; \
-		docker push ${CONTAINER_REGISTRY}/${REPO}/$$image:latest ; \
-	done
-	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:${VERSION}
-	docker push ${CONTAINER_REGISTRY}/${REPO}/gold:latest
-
 .PHONY: build-image
 build-image:format
 	@docker build --no-cache -t ${CONTAINER_REGISTRY}/${REPO}/${TASK}:${VERSION} -f ./Dockerfile.${TASK} .
@@ -67,7 +58,6 @@ web:
 #
 # Build variables
 #
-VERSION = 0.0.1
 CONTAINER_REGISTRY = ghcr.io
 REPO = jhwohlgemuth
 IMAGES = \
