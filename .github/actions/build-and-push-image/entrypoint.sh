@@ -4,7 +4,7 @@ docker login ghcr.io -u ${GITHUB_ACTOR} --password ${ACCESS_TOKEN}
 #
 # Build and push image
 #
-printf "\n\n[INFO] Build and publish:\n"
-figlet ${IMAGE_NAME}
+figlet "Build ${IMAGE_NAME}"
 make ${IMAGE_NAME}
+figlet "Push ${IMAGE_NAME}"
 make ${IMAGE_NAME}-push
