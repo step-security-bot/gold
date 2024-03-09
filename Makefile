@@ -29,17 +29,17 @@ format:
 .PHONY: build-image
 build-image:format
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK}:$(VERSION) -f ./Dockerfile.${TASK} .
-	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK}:latest -f ./Dockerfile.${TASK} .
+	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK} -f ./Dockerfile.${TASK} .
 
 .PHONY: gold
 gold: format
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold:$(VERSION) -f ./Dockerfile .
-	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold:latest -f ./Dockerfile .
+	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold -f ./Dockerfile .
 	
 .PHONY: gold-push
 gold-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold:${VERSION}"
-	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold:latest"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold"
 
 .PHONY: dev
 dev:
@@ -48,7 +48,7 @@ dev:
 .PHONY: dev-push
 dev-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev:${VERSION}"
-	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev:latest"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev"
 
 .PHONY: notebook
 notebook:
@@ -57,7 +57,7 @@ notebook:
 .PHONY: notebook-push
 notebook-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook:${VERSION}"
-	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook:latest"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook"
 
 .PHONY: rust
 rust:
@@ -66,7 +66,7 @@ rust:
 .PHONY: rust-push
 rust-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust:${VERSION}"
-	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust:latest"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust"
 
 .PHONY: web
 web:
@@ -75,7 +75,7 @@ web:
 .PHONY: web-push
 web-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web:${VERSION}"
-	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web:latest"
+	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web"
 #
 # Build variables
 #
