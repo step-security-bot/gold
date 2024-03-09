@@ -33,12 +33,10 @@ build-image:format
 
 .PHONY: gold
 gold: format
-	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold:$(VERSION) -f ./Dockerfile .
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold -f ./Dockerfile .
 	
 .PHONY: gold-push
 gold-push:
-	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold:${VERSION}"
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold"
 
 .PHONY: dev
