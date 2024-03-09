@@ -69,7 +69,7 @@ RUN /tmp/scripts/install_dependencies.sh \
         && brew bundle --file /tmp/scripts/Brewfile \
         && brew cleanup --prune=all \
         && eval "$(pkgx integrate)" \
-    && find "${NEOVIM_ROOT}" -name "*.vim" | xargs dos2unix \
+    && find "${NEOVIM_ROOT}" -name "*.vim" -print0 | xargs -0 dos2unix \
     && tar -C / -Jxpf /tmp/s6-overlay-noarch.tar.xz \
     && tar -C / -Jxpf /tmp/s6-overlay-x86_64.tar.xz \
     && tar -C / -Jxpf /tmp/s6-overlay-symlinks-noarch.tar.xz \

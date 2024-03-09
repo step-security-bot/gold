@@ -10,9 +10,9 @@ check:
 .PHONY: lint
 lint: check
 	@for image in $(IMAGES) ; do \
-        hadolint ./Dockerfile.$$image $(IGNORE_RULES) ; \
+        hadolint ./Dockerfile.$$image ; \
     done
-	hadolint ./Dockerfile $(IGNORE_RULES)
+	hadolint ./Dockerfile
 
 .PHONY: format
 format:
@@ -85,16 +85,6 @@ IMAGES = \
 	notebook \
 	rust \
 	web
-IGNORE_RULES = \
-	--ignore DL3003 \
-	--ignore DL3006 \
-	--ignore DL3007 \
-	--ignore DL3008 \
-	--ignore DL3013 \
-	--ignore DL4006 \
-	--ignore SC1091 \
-	--ignore SC2038 \
-	--ignore SC2086
 SCRIPTS = \
 	./provision/scripts/dev/configure_locale.sh \
 	./provision/scripts/dev/configure_ohmyzsh.sh \
@@ -112,15 +102,14 @@ SCRIPTS = \
 	./provision/scripts/gold/install_provers.sh \
 	./provision/scripts/gold/install_verus.sh \
 	./provision/scripts/notebook/install_code_server.sh \
-	./provision/scripts/notebook/install_extensions.sh \
 	./provision/scripts/notebook/install_conda.sh \
 	./provision/scripts/notebook/install_dotnet_jupyter_kernel.sh \
-	./provision/scripts/notebook/install_elixir.sh \
 	./provision/scripts/notebook/install_elixir_jupyter_kernel.sh \
+	./provision/scripts/notebook/install_elixir.sh \
+	./provision/scripts/notebook/install_extensions.sh \
 	./provision/scripts/notebook/install_nim.sh \
 	./provision/scripts/notebook/install_scala_jupyter_kernel.sh \
-	./provision/scripts/install_all_the_things.sh \
-	./provision/scripts/install_wasm_runtimes.sh
+	./provision/scripts/rust/install_wasm_runtimes.sh
 FUNCTIONS = \
 	./provision/functions/cleanup \
 	./provision/functions/is_command \

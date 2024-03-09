@@ -4,7 +4,7 @@ FROM ghcr.io/jhwohlgemuth/notebook:latest
 #
 LABEL author="Jason Wohlgemuth"
 LABEL org.opencontainers.image.source=https://github.com/jhwohlgemuth/gold
-LABEL org.opencontainers.image.description="Robust development environment with Rust tooling installed"
+LABEL org.opencontainers.image.description="Robust Rust development environment with optional WASM support"
 LABEL org.opencontainers.image.licenses=MIT
 #
 # %environment
@@ -15,18 +15,19 @@ ENV PATH="${PATH}:/root/.cargo/bin"
 #
 # %files
 #
-COPY ./provision/scripts/install_wasm_runtimes.sh /usr/local/bin/install_wasm_runtimes
+COPY --chmod=0755 ./provision/scripts/rust/* /tmp/scripts/
 #
 # %post
 #
 SHELL ["/bin/bash", "-c"]
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y \
+RUN chmod +x /tmp/scripts/* \
+    && curl https://sh.rustup.rs -sSf | bash -s -- -y \
     && rustup toolchain install nightly \
     && cargo install \
         evcxr_repl \
         evcxr_jupyter \
     && evcxr_jupyter --install \
-    && chmod +x /usr/local/bin/install_wasm_runtimes \
+    && mv /tmp/scripts/install_wasm_runtimes.sh /usr/local/bin/install_wasm_runtimes \
     && cleanup
 #
 # %runscript
