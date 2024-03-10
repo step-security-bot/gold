@@ -1,4 +1,4 @@
-.PHONY: check
+.PHONY: check lint format
 check:
 	@for script in $(SCRIPTS) ; do \
         shellcheck $$script; \
@@ -6,15 +6,11 @@ check:
 	@for fn in $(FUNCTIONS) ; do \
         shellcheck $$fn; \
     done
-
-.PHONY: lint
 lint: check
 	@for image in $(IMAGES) ; do \
         hadolint ./Dockerfile.$$image ; \
     done
 	hadolint ./Dockerfile
-
-.PHONY: format
 format:
 	@for script in $(SCRIPTS) ; do \
         dos2unix $$script; \
@@ -31,46 +27,36 @@ build-image:format
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK}:$(VERSION) -f ./Dockerfile.${TASK} .
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK} -f ./Dockerfile.${TASK} .
 
-.PHONY: gold
+.PHONY: gold gold-push
 gold: format
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/gold -f ./Dockerfile .
-	
-.PHONY: gold-push
 gold-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/gold"
 
-.PHONY: dev
+.PHONY: dev dev-push
 dev:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
-	
-.PHONY: dev-push
 dev-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev:${VERSION}"
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/dev"
 
-.PHONY: notebook
+.PHONY: notebook notebook-push
 notebook:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
-	
-.PHONY: notebook-push
 notebook-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook:${VERSION}"
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/notebook"
 
-.PHONY: rust
+.PHONY: rust rust-push
 rust:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
-	
-.PHONY: rust-push
 rust-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust:${VERSION}"
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/rust"
 
-.PHONY: web
+.PHONY: web web-push
 web:
 	@$(MAKE) TASK=$@ --no-print-directory build-image
-	
-.PHONY: web-push
 web-push:
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web:${VERSION}"
 	@docker push "${REGISTRY}/${GITHUB_ACTOR}/web"
@@ -98,6 +84,7 @@ SCRIPTS = \
 	./provision/scripts/gold/install_aeneas.sh \
 	./provision/scripts/gold/install_coq.sh \
 	./provision/scripts/gold/install_creusot.sh \
+	./provision/scripts/gold/install_dependencies.sh \
 	./provision/scripts/gold/install_ocaml.sh \
 	./provision/scripts/gold/install_provers.sh \
 	./provision/scripts/gold/install_verus.sh \
