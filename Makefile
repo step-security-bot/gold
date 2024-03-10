@@ -85,6 +85,8 @@ SCRIPTS = \
 	./provision/scripts/gold/install_coq.sh \
 	./provision/scripts/gold/install_creusot.sh \
 	./provision/scripts/gold/install_dependencies.sh \
+	./provision/scripts/gold/install_frama-c.sh \
+	./provision/scripts/gold/install_klee.sh \
 	./provision/scripts/gold/install_ocaml.sh \
 	./provision/scripts/gold/install_provers.sh \
 	./provision/scripts/gold/install_verus.sh \

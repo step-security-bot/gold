@@ -50,7 +50,8 @@ RUN chmod +x /tmp/scripts/* \
     && elan default leanprover/lean4:stable \
     && mv /tmp/scripts/install_aeneas.sh /usr/local/bin/install_aeneas \
     && mv /tmp/scripts/install_creusot.sh /usr/local/bin/install_creusot \
-    && mv /tmp/scripts/install_frama_c.sh /usr/local/bin/install_frama_c \
+    && mv /tmp/scripts/install_frama-c.sh /usr/local/bin/install_frama-c \
+    && mv /tmp/scripts/install_klee.sh /usr/local/bin/install_klee \
     && mv /tmp/scripts/install_verus.sh /usr/local/bin/install_verus \
     && mv /tmp/logo_coq.png "${JUPYTER_KERNELS}/coq/logo-64x64.png" \
     && mv /tmp/logo_ocaml.png "${JUPYTER_KERNELS}/ocaml/logo-64x64.png" \

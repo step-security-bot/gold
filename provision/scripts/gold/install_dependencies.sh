@@ -1,16 +1,13 @@
 #! /bin/bash
 
 apt-get update
+#
+# Install essential dependencies
+#
 apt-get install --no-install-recommends -y \
     apt-utils \
     autoconf \
-    graphviz \
-    gtksourceview-3.0 \
-    libcairo2-dev \
     libgmp-dev \
-    libgtk2.0-dev \
-    libgtk-3-dev \
-    libunwind-dev \
     libzmq5 \
     libzmq3-dev \
     pkg-config
