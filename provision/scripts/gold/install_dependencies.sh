@@ -5,6 +5,7 @@ apt-get install --no-install-recommends -y \
     apt-utils \
     autoconf \
     graphviz \
+    gtksourceview-3.0 \
     libcairo2-dev \
     libgmp-dev \
     libgtk2.0-dev \
