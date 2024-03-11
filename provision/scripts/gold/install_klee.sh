@@ -13,6 +13,7 @@ install_llvm() {
         llvm-13-dev \
         llvm-13-tools
     echo 'alias clang=clang-13' >> "${HOME}/.zshrc"
+    source "${HOME}/.zshrc"
 }
 main() {
     install_llvm
@@ -33,10 +34,10 @@ main() {
     #
     local KLEE_SRC_DIRECTORY="/klee"
     local KLEE_BUILD_DIRECTORY="/klee/build"
-    mkdir -p "${KLEE_BUILD_DIRECTORY}"
     git clone https://github.com/klee/klee.git "${KLEE_SRC_DIRECTORY}"
+    mkdir -p "${KLEE_BUILD_DIRECTORY}"
     cd "${KLEE_BUILD_DIRECTORY}" || exit
-    cmake -DENABLE_SOLVER_Z3=ON "${KLEE_SRC_DIRECTORY}"
+    cmake -DENABLE_SOLVER_Z3=ON -DENABLE_POSIX_RUNTIME=ON -DENABLE_UNIT_TESTS=OFF -DENABLE_SYSTEM_TESTS=OFF "${KLEE_SRC_DIRECTORY}"
     make
     cleanup
     cd "${HOME}" || exit
