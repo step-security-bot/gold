@@ -32,12 +32,13 @@ main() {
     # Install KLEE
     #
     local KLEE_SRC_DIRECTORY="/klee"
-    mkdir -p "${KLEE_SRC_DIRECTORY}"
-    git clone https://github.com/klee/klee.git /tmp/klee
-    cd /tmp/klee || exit
-    cmake -DENABLE_SOLVER_Z3=ON -DENABLE_POSIX_RUNTIME=ON "${KLEE_SRC_DIRECTORY}"
-    cd "${KLEE_SRC_DIRECTORY}" || exit
+    local KLEE_BUILD_DIRECTORY="/klee/build"
+    mkdir -p "${KLEE_BUILD_DIRECTORY}"
+    git clone https://github.com/klee/klee.git "${KLEE_SRC_DIRECTORY}"
+    cd "${KLEE_BUILD_DIRECTORY}" || exit
+    cmake -DENABLE_SOLVER_Z3=ON "${KLEE_SRC_DIRECTORY}"
     make
     cleanup
+    cd "${HOME}" || exit
 }
 main "$@"
