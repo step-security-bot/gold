@@ -3,6 +3,7 @@ set -e
 
 requires \
     git \
+    cmake \
     make
 install_llvm() {
     apt-get update
@@ -34,7 +35,7 @@ main() {
     mkdir -p "${KLEE_SRC_DIRECTORY}"
     git clone https://github.com/klee/klee.git /tmp/klee
     cd /tmp/klee || exit
-    make -DENABLE_SOLVER_Z3=ON -DENABLE_POSIX_RUNTIME=ON "${KLEE_SRC_DIRECTORY}"
+    cmake -DENABLE_SOLVER_Z3=ON -DENABLE_POSIX_RUNTIME=ON "${KLEE_SRC_DIRECTORY}"
     cd "${KLEE_SRC_DIRECTORY}" || exit
     make
     cleanup
