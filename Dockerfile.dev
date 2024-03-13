@@ -62,6 +62,7 @@ RUN /tmp/scripts/install_dependencies.sh \
     && /tmp/scripts/install_homebrew.sh \
     && /tmp/scripts/install_apptainer.sh \
     && /tmp/scripts/install_nix.sh && nix-env --install --file /tmp/scripts/manifest.nix \
+    && mv /tmp/scripts/install_cosmopolitan.sh /usr/local/bin/install_cosmopolitan \
     && mv /tmp/scripts/install_docker.sh /usr/local/bin/install_docker \
     && mv /tmp/scripts/install_musl.sh /usr/local/bin/install_musl \
     && /usr/bin/pwsh -Command /tmp/scripts/Install-Modules.ps1 \
