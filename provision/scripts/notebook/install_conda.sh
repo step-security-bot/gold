@@ -24,5 +24,6 @@ main() {
     local SCRIPT_PATH=/tmp/miniforge.sh
     curl -o "${SCRIPT_PATH}" -LJ "https://github.com/conda-forge/miniforge/releases/download/${VERSION}/${NAME}-${VERSION}-Linux-$(uname -m).sh"
     /bin/bash "${SCRIPT_PATH}" -bu -p "${CONDA_DIR}"
+    /root/miniconda3/bin/conda config --append envs_dirs "${CONDA_DIR}/envs/"
 }
 main "$@"
