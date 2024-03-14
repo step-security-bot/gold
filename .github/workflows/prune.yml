@@ -2,7 +2,7 @@ name: Image Maintenance
 
 env:
     ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    KEEP_UNTAGGED_COUNT: 2
+    KEEP_UNTAGGED_COUNT: 0
     USER: jhwohlgemuth
 
 on:
