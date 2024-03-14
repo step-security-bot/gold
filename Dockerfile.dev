@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 ARG BASE=bitnami/minideb
-ARG TAG=bullseye
+ARG TAG=bookworm
 ARG IMAGE=$BASE:$TAG
 FROM $IMAGE
 #
