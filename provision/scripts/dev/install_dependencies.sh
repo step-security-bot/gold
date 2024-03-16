@@ -5,6 +5,7 @@ apt-get update
 # Install essential dependencies
 #
 apt-get install --no-install-recommends -y \
+    binfmt-support \
     build-essential \
     cmake \
     curl \
