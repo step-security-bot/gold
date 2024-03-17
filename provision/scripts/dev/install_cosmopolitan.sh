@@ -19,7 +19,7 @@ main() {
     #
     curl "https://cosmo.zip/pub/cosmocc/cosmocc-${VERSION}.zip" --output /tmp/cosmocc.zip
     unzip /tmp/cosmocc.zip -d /cosmopolitan
-    ln -s /cosmopolitan/bin/mktemper /usr/local/bin/mktemper
-    ln -s /cosmopolitan/bin/cosmocc /usr/local/bin/cosmocc
+    echo 'export PATH="${PATH}:/cosmopolitan/bin"' >> "${HOME}/.zshrc"
+    export PATH="${PATH}:/cosmopolitan/bin"
 }
 main "$@"
