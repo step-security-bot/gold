@@ -14,8 +14,6 @@ main() {
     curl -o ${APE_BIN_PATH} "https://cosmo.zip/pub/cosmos/bin/ape-$(uname -m).elf"
     chmod +x ${APE_BIN_PATH}
     update-binfmts --enable
-    sh -c "echo ':APE:M::MZqFpD::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
-    sh -c "echo ':APE-jart:M::jartsr::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
     #
     # Install Cosmopolitan
     #
