@@ -16,11 +16,11 @@ lint:
 	hadolint ./Dockerfile
 check:
 	@for script in $(SCRIPTS) ; do \
-		shfmt --write --indent 4 --case-indent --space-redirects $$script; \
+		shfmt --write --list $$script; \
         shellcheck $$script; \
     done
 	@for fn in $(FUNCTIONS) ; do \
-		shfmt --write --indent 4 --case-indent --space-redirects $$fn; \
+		shfmt --write --list --indent 4 --case-indent --space-redirects $$fn; \
         shellcheck $$fn; \
     done
 
