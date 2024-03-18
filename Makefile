@@ -1,16 +1,4 @@
 .PHONY: check lint format
-check:
-	@for script in $(SCRIPTS) ; do \
-        shellcheck $$script; \
-    done
-	@for fn in $(FUNCTIONS) ; do \
-        shellcheck $$fn; \
-    done
-lint: check
-	@for image in $(IMAGES) ; do \
-        hadolint ./Dockerfile.$$image ; \
-    done
-	hadolint ./Dockerfile
 format:
 	@for script in $(SCRIPTS) ; do \
         dos2unix $$script; \
@@ -20,6 +8,18 @@ format:
     done
 	@for fn in $(FUNCTIONS) ; do \
         dos2unix $$fn; \
+    done
+lint:
+	@for image in $(IMAGES) ; do \
+        hadolint ./Dockerfile.$$image ; \
+    done
+	hadolint ./Dockerfile
+check:
+	@for script in $(SCRIPTS) ; do \
+        shellcheck $$script; \
+    done
+	@for fn in $(FUNCTIONS) ; do \
+        shellcheck $$fn; \
     done
 
 .PHONY: build-image
