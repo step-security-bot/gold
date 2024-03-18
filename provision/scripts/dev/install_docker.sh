@@ -51,7 +51,7 @@ main() {
     echo "deb [arch=$(dpkg --print-architecture) signed-by=${KEY}] https://download.docker.com/linux/${ID} ${CODENAME} stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
     apt-get update
     install_docker
-    if is_command nvidia-smi ; then
+    if is_command nvidia-smi; then
         install_nvidia_container_toolkit
     fi
 }
