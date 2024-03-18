@@ -23,7 +23,7 @@ check:
     done
 
 .PHONY: build-image
-build-image:format
+build-image: format
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK}:$(VERSION) -f ./Dockerfile.${TASK} .
 	@docker build --no-cache -t ${REGISTRY}/${GITHUB_ACTOR}/${TASK} -f ./Dockerfile.${TASK} .
 
