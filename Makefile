@@ -92,6 +92,7 @@ SCRIPTS = \
 	./provision/scripts/gold/install_ocaml.sh \
 	./provision/scripts/gold/install_provers.sh \
 	./provision/scripts/gold/install_verus.sh \
+	./provision/scripts/notebook/download_notebooks.sh \
 	./provision/scripts/notebook/install_code_server.sh \
 	./provision/scripts/notebook/install_conda.sh \
 	./provision/scripts/notebook/install_dotnet_jupyter_kernel.sh \
