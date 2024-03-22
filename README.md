@@ -72,6 +72,7 @@ graph LR
     rust --> gold
 ```
 
+
 -------------
 
 **Footnotes**
@@ -92,3 +93,7 @@ graph LR
 [4]
 ---
 > Default Verdaccio proxy npm registry port is `4873` ([documentation](https://verdaccio.org/docs/configuration#listen-port))
+
+---
+
+![Alt](https://repobeats.axiom.co/api/embed/bf68a3bfeb0afd8dce0177958ff63b289d2c8d39.svg "Repobeats analytics image")
