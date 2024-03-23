@@ -63,7 +63,7 @@ The following images are available:
 - `ghcr.io/jhwohlgemuth/rust`: Environment ready for writing Rust code and working with WebAssembly
 - `ghcr.io/jhwohlgemuth/gold`: Proof assistants, provers, and other tools for software correctness
 
-The images are build according the the following dependency graph:
+The images are build according to the following dependency graph:
 ```mermaid
 graph LR
     dev --> notebook
@@ -74,6 +74,7 @@ graph LR
 
 Contributing
 ------------
+> [!TIP]
 > See [CONTRIBUTING.md](./CONTRIBUTING.md)
 
 ![Alt](https://repobeats.axiom.co/api/embed/bf68a3bfeb0afd8dce0177958ff63b289d2c8d39.svg "Repobeats analytics image")
