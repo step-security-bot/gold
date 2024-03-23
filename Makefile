@@ -95,6 +95,7 @@ SCRIPTS = \
 	./provision/scripts/notebook/download_notebooks.sh \
 	./provision/scripts/notebook/install_code_server.sh \
 	./provision/scripts/notebook/install_conda.sh \
+	./provision/scripts/notebook/install_dependencies.sh \
 	./provision/scripts/notebook/install_dotnet_jupyter_kernel.sh \
 	./provision/scripts/notebook/install_elixir_jupyter_kernel.sh \
 	./provision/scripts/notebook/install_elixir.sh \

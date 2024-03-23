@@ -56,6 +56,7 @@ RUN /tmp/scripts/install_conda.sh
 SHELL ["/root/miniconda3/bin/conda", "run", "-n", "base", "/bin/bash", "-c"]
 RUN openssl req -new -x509 -days 365 -out "${CERTS_DIR}/my.pem" -config "${CERTS_DIR}/ca.cnf" \
     && mv "$(pwd)/my.key" "${CERTS_DIR}" \
+    && /tmp/scripts/install_dependencies.sh \
     && mamba env update --file /tmp/environment.yml \
     && mamba clean -yaf \
     && jupyter contrib nbextension install --user \
