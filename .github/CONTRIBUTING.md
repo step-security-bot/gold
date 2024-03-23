@@ -1,7 +1,7 @@
 Getting Started
 ===============
 - Read this guide (including the [Code of Conduct](CODE_OF_CONDUCT.md))
-- Check out our [Trello page](https://trello.com/b/LRyMB5zk/powershell-prelude) to see what features and fixes are planned.
+- Check out our [Trello page](https://trello.com/b/WEMB9CEL/gold) to see what features and fixes are planned.
 - Fork this repository and clone your fork locally
 - [Setup your environment](#project-setup) to use development tasks (test, lint, etc...)
 - Adhere to the [project standards](#project-standards)
