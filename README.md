@@ -75,7 +75,7 @@ graph LR
 Contributing
 ------------
 > [!TIP]
-> See [CONTRIBUTING.md](./CONTRIBUTING.md)
+> See [CONTRIBUTING.md](./.github/CONTRIBUTING.md)
 
 ![Alt](https://repobeats.axiom.co/api/embed/bf68a3bfeb0afd8dce0177958ff63b289d2c8d39.svg "Repobeats analytics image")
 
