@@ -8,7 +8,12 @@ main() {
     local EMPTY="[ ] "
     local COLOR="${GOLD_FOREGROUND_COLOR:-220}"
     local NOTEBOOKS_DIR=${1:-'/root/dev/notebooks'}
-    gum style --border normal --margin "1" --padding "1 2" --border-foreground "${COLOR}" "Download $(gum style --foreground "${COLOR}" 'notebooks')"
+    gum style \
+        --border normal \
+        --border-foreground "${COLOR}" \
+        --margin "1" \
+        --padding "1 2" \
+        "Download $(gum style --foreground "${COLOR}" 'notebooks')"
     DATA="""
         C#:csharp
         Clojure:clojure
@@ -46,7 +51,7 @@ main() {
         --header="Please select notebook(s)" \
         --selected="${SELECTED}" \
         --selected.foreground="${COLOR}" \
-        --selected-prefix="[x] " \
+        --selected-prefix="[X] " \
         --unselected-prefix="${EMPTY}" \
         $(echo "${CHOICES}"))
     LANGUAGES=$(echo "${DATA}" | grep "${CHOSEN}:" | cut -d':' -f2)
