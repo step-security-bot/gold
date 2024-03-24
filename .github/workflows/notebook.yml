@@ -1,5 +1,9 @@
 name: NOTEBOOK
 
+permissions:
+  contents: read
+  packages: write
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: notebook
@@ -24,9 +28,6 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
     steps:
       - run: echo "${{ github.actor }}/${{ env.IMAGE_NAME }} will be built and pushed to ${{ env.REGISTRY }}"
 

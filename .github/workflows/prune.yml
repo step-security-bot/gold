@@ -1,5 +1,8 @@
 name: Image Maintenance
 
+permissions:
+  packages: write
+
 env:
   ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   KEEP_UNTAGGED_COUNT: 0
@@ -12,8 +15,6 @@ on:
 
 jobs:
   delete-untagged-images:
-    permissions:
-      packages: write
     name: Delete Untagged Images
     runs-on: ubuntu-latest
     steps:
