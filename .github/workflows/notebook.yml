@@ -16,10 +16,10 @@ on:
     branches:
       - main
     paths:
-      - 'Dockerfile.notebook'
-      - 'config/code-server/**'
-      - 'config/jupyter/**'
-      - 'provision/scripts/notebook/**'
+      - Dockerfile.notebook
+      - config/code-server/**
+      - config/jupyter/**
+      - provision/scripts/notebook/**
 
 jobs:
   build-and-push:

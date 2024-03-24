@@ -16,8 +16,8 @@ on:
     branches:
       - main
     paths:
-      - 'Dockerfile.web'
-      - 'provision/scripts/web/**'
+      - Dockerfile.web
+      - provision/scripts/web/**
 
 jobs:
   build-and-push:

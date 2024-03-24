@@ -11,12 +11,12 @@ on:
     branches:
       - main
     paths:
-      - 'VERSION'
-      - 'Dockerfile.dev'
-      - 'config/.theme.omp.json'
-      - 'provision/neovim/**'
-      - 'provision/functions/**'
-      - 'provision/scripts/dev/**'
+      - VERSION
+      - Dockerfile.dev
+      - config/.theme.omp.json
+      - provision/neovim/**
+      - provision/functions/**
+      - provision/scripts/dev/**
 
 jobs:
   build-and-push:
