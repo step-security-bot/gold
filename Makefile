@@ -13,7 +13,9 @@ lint:
 	@for image in $(IMAGES) ; do \
         hadolint ./Dockerfile.$$image ; \
     done
-	hadolint ./Dockerfile
+	@hadolint ./Dockerfile
+	@yamllint .
+	@checkov
 check:
 	@for script in $(SCRIPTS) ; do \
 		shfmt --write --list $$script; \
