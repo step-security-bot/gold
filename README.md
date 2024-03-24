@@ -21,8 +21,20 @@ Use VS Code in the browser in **Three Easy Steps™**
     ```
 3. Open a browser and navigate to [https://localhost:1337](https://localhost:1337) <sup>[2](#2)</sup>
 
-Environment for Software Correctness
-------------------------------------
+> [!TIP]
+> See [Container Customization section](#container-customization) for more details on how to customize the container.
+
+What is Gold?
+-------------
+> 🚧 UNDER CONSTRUCTION
+
+So what, big deal, who cares?
+-----------------------------
+> 🚧 UNDER CONSTRUCTION
+
+
+Things You Can Do with Gold
+---------------------------
 > 🚧 UNDER CONSTRUCTION
 
 Container Customization
@@ -51,27 +63,6 @@ The following environment variables are available to customize containers:
 > [!TIP]
 > Change environment variables with the `--env` parameter <sup>[3](#3)</sup> (ex. `docker run -it --env CODE_SERVER_PORT=8080 <image>`)
 
-Image Design
-------------
-> [!NOTE]
-> Images are built using GitHub Actions and deployed to the Github Container Registry, `ghcr.io`, under the username, `jhwohlgemuth`
-
-The following images are available:
-- `ghcr.io/jhwohlgemuth/dev`: Core image with all necessary system dependencies (intended for **dev**elopment)
-- `ghcr.io/jhwohlgemuth/notebook`: Images with [Jupyter notebook](https://github.com/jupyter/notebook) server and [code-server](https://github.com/coder/code-server) services managed by [s6-overlay](https://github.com/just-containers/s6-overlay)
-- `ghcr.io/jhwohlgemuth/web`: Web development environment and [Verdaccio](https://verdaccio.org/) proxy npm registry <sup>[4](#4)</sup>
-- `ghcr.io/jhwohlgemuth/rust`: Environment ready for writing Rust code and working with WebAssembly
-- `ghcr.io/jhwohlgemuth/gold`: Proof assistants, provers, and other tools for software correctness
-
-The images are build according to the following dependency graph:
-```mermaid
-graph LR
-    dev --> notebook
-    notebook --> web
-    notebook --> rust
-    rust --> gold
-```
-
 Contributing
 ------------
 > [!TIP]
@@ -95,7 +86,3 @@ Contributing
 [3]
 ---
 > See [docker run documentation](https://docs.docker.com/engine/reference/commandline/container_run/)
-
-[4]
----
-> Default Verdaccio proxy npm registry port is `4873` ([documentation](https://verdaccio.org/docs/configuration#listen-port))
