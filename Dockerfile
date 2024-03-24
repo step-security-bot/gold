@@ -30,12 +30,12 @@ RUN mkdir -p \
 #
 # %files
 #
-COPY ./config/.iex.exs "${HOME}/"
-COPY ./config/.utoprc "${HOME}/"
-COPY ./config/init.ml "${HOME}/.config/utop/"
-COPY ./config/jupyter/logo_coq.png /tmp/
-COPY ./config/jupyter/logo_ocaml.png /tmp/
-COPY ./provision/scripts/gold/* /tmp/scripts/
+ADD ./config/.iex.exs "${HOME}/"
+ADD ./config/.utoprc "${HOME}/"
+ADD ./config/init.ml "${HOME}/.config/utop/"
+ADD ./config/jupyter/logo_coq.png /tmp/
+ADD ./config/jupyter/logo_ocaml.png /tmp/
+ADD ./provision/scripts/gold/* /tmp/scripts/
 #
 # %post
 #

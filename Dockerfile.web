@@ -34,10 +34,10 @@ RUN mkdir -p \
 #
 # %files
 #
-COPY ./config/verdaccio/.npmrc "${HOME}/.npmrc"
-COPY ./config/verdaccio/config.yml /verdaccio/conf/
-COPY ./config/verdaccio/service/* /etc/services.d/verdaccio/
-COPY ./provision/scripts/web/manifest.nix /tmp/scripts/
+ADD ./config/verdaccio/.npmrc "${HOME}/.npmrc"
+ADD ./config/verdaccio/config.yml /verdaccio/conf/
+ADD ./config/verdaccio/service/* /etc/services.d/verdaccio/
+ADD ./provision/scripts/web/manifest.nix /tmp/scripts/
 #
 # %post
 #

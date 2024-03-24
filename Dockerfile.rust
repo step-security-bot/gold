@@ -15,7 +15,7 @@ ENV PATH="${PATH}:/root/.cargo/bin"
 #
 # %files
 #
-COPY --chmod=0755 ./provision/scripts/rust/* /tmp/scripts/
+ADD --chmod=0755 ./provision/scripts/rust/* /tmp/scripts/
 #
 # %post
 #

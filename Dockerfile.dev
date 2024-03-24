@@ -44,8 +44,8 @@ RUN ln -snf "/usr/share/zoneinfo/${TZ}" /etc/localtime \
 #
 # %files
 #
-COPY --chmod=0755 ./provision/scripts/dev/* /tmp/scripts
-COPY --chmod=0755 ./provision/functions/* /usr/local/bin/fn
+ADD --chmod=0755 ./provision/scripts/dev/* /tmp/scripts
+ADD --chmod=0755 ./provision/functions/* /usr/local/bin/fn
 ADD https://github.com/jhwohlgemuth/my-shell-setup.git "${DOTFILES}"
 ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz" /tmp
 ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz" /tmp
@@ -82,5 +82,6 @@ RUN /tmp/scripts/install_dependencies.sh \
 # %runscript
 #
 WORKDIR /root/dev
+HEALTHCHECK NONE
 ENTRYPOINT [ "/init" ]
 CMD ["/bin/zsh"]
