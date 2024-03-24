@@ -3,7 +3,7 @@ compact: true
 directory:
   - .
 framework:
-  - all 
+  - all
 output: cli
 quiet: true
 skip-check:
