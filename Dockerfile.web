@@ -34,10 +34,10 @@ RUN mkdir -p \
 #
 # %files
 #
-ADD ./config/verdaccio/.npmrc "${HOME}/.npmrc"
-ADD ./config/verdaccio/config.yml /verdaccio/conf/
-ADD ./config/verdaccio/service/* /etc/services.d/verdaccio/
-ADD ./provision/scripts/web/manifest.nix /tmp/scripts/
+COPY ./config/verdaccio/.npmrc "${HOME}/.npmrc"
+COPY ./config/verdaccio/config.yml /verdaccio/conf/
+COPY ./config/verdaccio/service/* /etc/services.d/verdaccio/
+COPY ./provision/scripts/web/manifest.nix /tmp/scripts/
 #
 # %post
 #
@@ -53,5 +53,7 @@ RUN nix-env --install --file /tmp/scripts/manifest.nix \
 # %runscript
 #
 WORKDIR /root/dev
+HEALTHCHECK --interval=5m --timeout=30s --start-period=10s --retries=3 CMD \
+    curl --fail --insecure "https://localhost:4873" || exit 1
 ENTRYPOINT [ "/init" ]
 CMD ["/bin/zsh"]

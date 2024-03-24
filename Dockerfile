@@ -18,6 +18,8 @@ ARG JUPYTER_KERNELS=/usr/local/share/jupyter/kernels
 #
 EXPOSE 1337
 EXPOSE 13337
+ENV CODE_SERVER_PORT=1337
+ENV JUPYTER_PORT=13337
 #
 # %setup
 #
@@ -30,12 +32,12 @@ RUN mkdir -p \
 #
 # %files
 #
-ADD ./config/.iex.exs "${HOME}/"
-ADD ./config/.utoprc "${HOME}/"
-ADD ./config/init.ml "${HOME}/.config/utop/"
-ADD ./config/jupyter/logo_coq.png /tmp/
-ADD ./config/jupyter/logo_ocaml.png /tmp/
-ADD ./provision/scripts/gold/* /tmp/scripts/
+COPY ./config/.iex.exs "${HOME}/"
+COPY ./config/.utoprc "${HOME}/"
+COPY ./config/init.ml "${HOME}/.config/utop/"
+COPY ./config/jupyter/logo_coq.png /tmp/
+COPY ./config/jupyter/logo_ocaml.png /tmp/
+COPY ./provision/scripts/gold/* /tmp/scripts/
 #
 # %post
 #
@@ -60,5 +62,7 @@ RUN chmod +x /tmp/scripts/* \
 # %runscript
 #
 WORKDIR /root/dev
+HEALTHCHECK --interval=5m --timeout=30s --start-period=10s --retries=3 CMD \
+    curl --fail --insecure "https://localhost:${CODE_SERVER_PORT}" || exit 1
 ENTRYPOINT [ "/init" ]
 CMD ["/bin/zsh"]
