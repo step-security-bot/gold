@@ -29,14 +29,14 @@ dependencies:
   - torchinfo
   - torchvision
   - pip:
-    - bentoml
-    - deepchecks[vision]
-    - great_expectations
-    - huggingface-hub
-    # - ivy-core
-    - merlin-dataloader
-    - nebullvm
-    - safetensors
-    - segmentation-models
-    - torchviz
-    - truss
+      - bentoml
+      - deepchecks[vision]
+      - great_expectations
+      - huggingface-hub
+      - ivy-core
+      - merlin-dataloader
+      - nebullvm
+      - safetensors
+      - segmentation-models
+      - torchviz
+      - truss

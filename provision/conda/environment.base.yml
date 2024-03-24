@@ -9,7 +9,7 @@ dependencies:
   - conda-merge
   - conda-pack
   - dask
-  # - ibis-framework
+  - ibis-framework
   - ipykernel
   - ipywidgets
   - mamba
@@ -30,10 +30,10 @@ dependencies:
   - xarray
   - zarr
   - pip:
-    - apprise
-    - drawdata
-    - fugue[dask,duckdb,ibis,polars]
-    - gdown
-    - hypothesis
-    - ptpython
-    - weave
+      - apprise
+      - drawdata
+      - fugue[dask,duckdb,ibis,polars]
+      - gdown
+      - hypothesis
+      - ptpython
+      - weave
