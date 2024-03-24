@@ -48,18 +48,28 @@ Project Setup
 -------------
 > 🚧 UNDER CONSTRUCTION
 ### Requirements
-- [Docker](https://www.docker.com/get-started/) and/or [Podman](https://podman.io/get-started) - d'uh
-- [dos2unix](https://dos2unix.sourceforge.io/#DOS2UNIX) - format scripts for execution within a Unix environment
-- [hadolint](https://github.com/hadolint/hadolint) - analyze Dockerfiles
-- [yamllint](https://github.com/adrienverge/yamllint) - analyze YAML files
-- [checkov](https://github.com/bridgecrewio/checkov) - provides more checks for Dockerfiles and YAML files
-- [shfmt](https://github.com/patrickvane/shfmt) - format shell scripts
-- [shellcheck](https://github.com/koalaman/shellcheck) - analyze shell scripts
+- [Docker](https://www.docker.com/get-started/) and/or [Podman](https://podman.io/get-started)
+- [dos2unix](https://dos2unix.sourceforge.io/#DOS2UNIX)
+    - Format scripts for execution within a Unix environment
+    - Used in [Makefile](../Makefile) `format` and `build-image` tasks
+- [hadolint](https://github.com/hadolint/hadolint)
+    - Analyze Dockerfiles
+    - Configured via [.hadolint.yaml](../.hadolint.yaml)
+- [yamllint](https://github.com/adrienverge/yamllint)
+    - Analyze YAML files
+    - Configure via [.yamllint](../.yamllint)
+- [checkov](https://github.com/bridgecrewio/checkov)
+    - Provides more checks for Dockerfiles and YAML files
+    - Checks are security focused
+    - Configure via [.checkov.yaml](../.checkov.yaml)
+- [shfmt](https://github.com/patrickvane/shfmt)
+    - Format shell scripts
+    - Configured via [.editorconfig](../.editorconfig)
+- [shellcheck](https://github.com/koalaman/shellcheck)
+    - Analyze shell scripts
 
 Project Standards
 -----------------
-> 🚧 UNDER CONSTRUCTION
-
 - Code changes should never <sup>[2](#2)</sup> introduce issues detected by `make lint` or `make check`
 - When in doubt, write code that is consistent with preponderance of existing codebase. Let's call this the "***priority of pre-existing preponderance (P3) rule***".
 - Exceptions to any of these standards should be supported by strong reasoning and sufficient effort
@@ -75,4 +85,4 @@ Project Standards
 
 [2]
 ---
-> "never" is strong language...sometimes you might need to accept an issue or skip/ignore it. But, you should always have a good reason for doing so and such a scenario should be few and far in-between.
+> "never" is strong language...sometimes you might need to accept an issue or skip/ignore it. **BUT**, you should always have a good reason for doing so and such scenarios should be few and far in-between.
