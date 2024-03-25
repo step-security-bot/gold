@@ -1,11 +1,11 @@
 Getting Started
 ===============
 - Read this guide (including the [Code of Conduct](CODE_OF_CONDUCT.md))
-- Check out our [Trello page](https://trello.com/b/WEMB9CEL/gold) to see what features and fixes are planned.
+- Check out our [Trello page](https://trello.com/b/WEMB9CEL/gold) to see what features and fixes are planned
 - Fork this repository and clone your fork locally
 - [Setup your environment](#project-setup) to use development tasks (test, lint, etc...)
 - Adhere to the [project standards](#project-standards)
-- Write some code and stuff...
+- Write some code and stuff
 - Push your changes and create a pull request
 
 Code of Conduct
@@ -71,7 +71,7 @@ Project Setup
 Project Standards
 -----------------
 - Code changes should never <sup>[2](#2)</sup> introduce issues detected by `make lint` or `make check`
-- When in doubt, write code that is consistent with preponderance of existing codebase. Let's call this the "***priority of pre-existing preponderance (P3) rule***".
+- When in doubt, write code consistent with preponderance of existing codebase. Let's call this the "***priority of pre-existing preponderance (P3) rule***".
 - Exceptions to any of these standards should be supported by strong reasoning and sufficient effort
 
 -------------
@@ -85,4 +85,4 @@ Project Standards
 
 [2]
 ---
-> "never" is strong language...sometimes you might need to accept an issue or skip/ignore it. **BUT**, you should always have a good reason for doing so and such scenarios should be few and far in-between.
+> "Never" is strong language. Sometimes you might need to accept an issue or skip/ignore it. **BUT**, you should always have a good reason for doing so and such scenarios should be few and far between.

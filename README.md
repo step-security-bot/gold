@@ -33,7 +33,7 @@ So what, big deal, who cares?
 > 🚧 UNDER CONSTRUCTION
 
 
-Things You Can Do with Gold
+Things you can do with Gold
 ---------------------------
 > 🚧 UNDER CONSTRUCTION
 
