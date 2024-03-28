@@ -19,11 +19,11 @@ lint:
 check:
 	@for script in $(SCRIPTS) ; do \
 		shfmt --write --list $$script; \
-        shellcheck $$script; \
+        shellcheck $$script --enable all; \
     done
 	@for fn in $(FUNCTIONS) ; do \
 		shfmt --write --list --indent 4 --case-indent --space-redirects $$fn; \
-        shellcheck $$fn; \
+        shellcheck $$fn --enable all; \
     done
 
 .PHONY: build-image
@@ -79,6 +79,7 @@ SCRIPTS = \
 	./provision/scripts/dev/configure_locale.sh \
 	./provision/scripts/dev/configure_ohmyzsh.sh \
 	./provision/scripts/dev/install_apptainer.sh \
+	./provision/scripts/dev/install_cosmopolitan.sh \
 	./provision/scripts/dev/install_dependencies.sh \
 	./provision/scripts/dev/install_docker.sh \
 	./provision/scripts/dev/install_dotnet.sh \

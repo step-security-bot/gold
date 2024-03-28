@@ -25,6 +25,7 @@ install_nvidia_container_toolkit() {
     # shellcheck source=/dev/null
     . /etc/os-release
     curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+    # shellcheck disable=SC2154
     curl -s -L "https://nvidia.github.io/nvidia-docker/${ID}${VERSION_ID}/nvidia-docker.list" | tee /etc/apt/sources.list.d/nvidia-docker.list
     apt-get update
     apt-get install -y nvidia-container-toolkit

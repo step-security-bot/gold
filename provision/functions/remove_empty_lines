@@ -1,9 +1,9 @@
 #! /bin/bash
 
 main() {
-    local FILE="${1:-$NULL}"
+    local FILE="${1:-${NULL}}"
     local EXPRESSION='/^[[:space:]]*$/d'
-    if [ -z "${FILE}" ]; then
+    if [[ -z "${FILE}" ]]; then
         sed "${EXPRESSION}"
     else
         sed -i "${EXPRESSION}" "${FILE}"

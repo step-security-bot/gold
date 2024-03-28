@@ -3,10 +3,11 @@
 # Example usage: move_lines -e '/^alias/  -f ~/.zshrc -b'
 # Caution: If -e matches last line, all lines with match will be deleted when -b is used
 main() {
-    local FILE=$NULL
-    local EXPRESSION=$NULL
+    # shellcheck disable=SC2154
+    local FILE=${NULL}
+    local EXPRESSION=${NULL}
     while getopts 'e:f:btf' OPTCHAR; do
-        case "$OPTCHAR" in
+        case "${OPTCHAR}" in
             e)
                 EXPRESSION="${OPTARG}"
                 ;;
@@ -14,7 +15,7 @@ main() {
                 FILE="${OPTARG}"
                 ;;
             b)
-                if [ -z "${EXPRESSION}" ]; then
+                if [[ -z "${EXPRESSION}" ]]; then
                     echo "==> [Error] -e must be declared before -b" >&2
                     exit 1
                 else
@@ -23,7 +24,7 @@ main() {
                 fi
                 ;;
             t)
-                if [ -z "${EXPRESSION}" ]; then
+                if [[ -z "${EXPRESSION}" ]]; then
                     echo "==> [Error] -e must be declared before -t" >&2
                     exit 1
                 else
@@ -34,9 +35,12 @@ main() {
             ?)
                 exit 1
                 ;;
+            *)
+                exit 1
+                ;;
         esac
     done
-    if [ -z "${FILE}" ]; then
+    if [[ -z "${FILE}" ]]; then
         sed "${EXPRESSION}"
     else
         sed -i "${EXPRESSION}" "${FILE}"

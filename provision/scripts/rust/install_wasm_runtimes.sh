@@ -51,12 +51,12 @@ main() {
             MESSAGE+="    $(gum style --foreground 46 '🗸') ${RUNTIME}\n"
         fi
     done
-    if [ "${COUNT}" -gt 0 ]; then
+    if [[ "${COUNT}" -gt 0 ]]; then
         echo '{{ Italic "NOTE" }}: The following runtimes are already {{ Color "46" "installed" }}' | gum format -t template
         echo -e "${MESSAGE}\n" | gum format -t template
     fi
     CHOICES=$(echo "${DATA}" | cut -d':' -f1)
-    # shellcheck disable=SC2046,SC2068,SC2116
+    # shellcheck disable=SC2046,SC2068,SC2116,SC2154
     CHOSEN=$(gum choose \
         --no-limit \
         --cursor-prefix="${EMPTY}" \
