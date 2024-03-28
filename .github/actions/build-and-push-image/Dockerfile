@@ -25,4 +25,5 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
+HEALTHCHECK NONE
 ENTRYPOINT ["/entrypoint.sh"]

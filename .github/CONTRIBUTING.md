@@ -1,5 +1,4 @@
-Getting Started
-===============
+# Getting Started
 - Read this guide (including the [Code of Conduct](CODE_OF_CONDUCT.md))
 - Check out our [Trello page](https://trello.com/b/WEMB9CEL/gold) to see what features and fixes are planned
 - Fork this repository and clone your fork locally
@@ -8,20 +7,17 @@ Getting Started
 - Write some code and stuff
 - Push your changes and create a pull request
 
-Code of Conduct
----------------
+## Code of Conduct
 > Please read and adhere to the [code of conduct](CODE_OF_CONDUCT.md)
 
-Introduction
-------------
+## Introduction
 > First off, thank you for considering contributing to `Gold`!
 
 If you would like to make a feature request or enhancement suggestion, please open an issue.
 
 If you would like to generously provide a pull request to correct a verified issue, please adhere to this project's [standards](#project-standards). Before making a pull request for a desired feature, please socialize the concept by opening an issue first.
 
-Project Architecture
---------------------
+## Project Architecture
 > 🚧 UNDER CONSTRUCTION
 
 ### Image Design
@@ -44,8 +40,7 @@ graph LR
     rust --> gold
 ```
 
-Project Setup
--------------
+## Project Setup
 > 🚧 UNDER CONSTRUCTION
 ### Requirements
 - [Docker](https://www.docker.com/get-started/) and/or [Podman](https://podman.io/get-started)
@@ -68,8 +63,7 @@ Project Setup
 - [shellcheck](https://github.com/koalaman/shellcheck)
     - Analyze shell scripts
 
-Project Standards
------------------
+## Project Standards
 - Code changes should never <sup>[2](#2)</sup> introduce issues detected by `make lint` or `make check`
 - When in doubt, write code consistent with preponderance of existing codebase. Let's call this the "***priority of pre-existing preponderance (P3) rule***".
 - Exceptions to any of these standards should be supported by strong reasoning and sufficient effort

@@ -14,6 +14,7 @@ lint:
         hadolint ./Dockerfile.$$image ; \
     done
 	@hadolint ./Dockerfile
+	# @hadolint ./.github/actions/build-and-push-image/Dockerfile
 	@yamllint .
 	@checkov
 check:
@@ -105,7 +106,8 @@ SCRIPTS = \
 	./provision/scripts/notebook/install_extensions.sh \
 	./provision/scripts/notebook/install_nim.sh \
 	./provision/scripts/notebook/install_scala_jupyter_kernel.sh \
-	./provision/scripts/rust/install_wasm_runtimes.sh
+	./provision/scripts/rust/install_wasm_runtimes.sh \
+	./.github/actions/build-and-push-image/entrypoint.sh
 FUNCTIONS = \
 	./provision/functions/cleanup \
 	./provision/functions/is_command \
