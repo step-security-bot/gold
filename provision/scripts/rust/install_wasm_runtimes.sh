@@ -17,6 +17,7 @@ install_targets_and_tools() {
     gum spin --title 'Adding WASM Unknown target' -- rustup target add wasm32-unknown-unknown --toolchain nightly
     gum spin --title 'Install WASM/WASI related crates' -- cargo install \
         cargo-wasi \
+        cargo-wasix \
         wasm-bindgen-cli \
         wasm-pack \
         wasm-tools

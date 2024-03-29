@@ -21,7 +21,7 @@ on:
       - main
     paths:
       - Dockerfile.rust
-      - provision/scripts/install_wasm_runtimes.sh
+      - provision/scripts/rust/install_wasm_runtimes.sh
 
 jobs:
   build-and-push:
