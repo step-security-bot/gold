@@ -70,13 +70,10 @@ graph LR
 
 -------------
 
-**Footnotes**
--------------
+## *Footnotes*
 
-[1]
----
+## [1]
 > Default Verdaccio proxy npm registry port is `4873` ([documentation](https://verdaccio.org/docs/configuration#listen-port))
 
-[2]
----
+## [2]
 > "Never" is strong language. Sometimes you might need to accept an issue or skip/ignore it. **BUT**, you should always have a good reason for doing so and such scenarios should be few and far between.
