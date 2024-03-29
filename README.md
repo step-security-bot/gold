@@ -40,10 +40,10 @@ Things you can do with Gold
 Container Customization
 -----------------------
 > [!NOTE]
-> Use [`install_extensions`](./config/code-server/install_extensions.sh) to install VS Code extensions.
+> Use [`install_extensions`](./provision/scripts/notebook/install_extensions.sh) to install VS Code extensions.
 
 > [!NOTE]
-> [`install_extensions`](./config/code-server/install_extensions.sh) accepts any number of image names (see [Image Design section](#image-design))</br>
+> [`install_extensions`](./provision/scripts/notebook/install_extensions.sh) accepts any number of image names (see [Image Design section](#image-design))</br>
 > *Example* `install_extensions notebook dotnet web`
 
 The following environment variables are available to customize containers:
