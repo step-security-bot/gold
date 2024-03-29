@@ -85,6 +85,7 @@ SCRIPTS = \
 	./provision/scripts/dev/install_docker.sh \
 	./provision/scripts/dev/install_dotnet.sh \
 	./provision/scripts/dev/install_homebrew.sh \
+	./provision/scripts/dev/install_musl.sh \
 	./provision/scripts/dev/install_nix.sh \
 	./provision/scripts/dev/install_ohmyzsh.sh \
 	./provision/scripts/gold/install_aeneas.sh \
