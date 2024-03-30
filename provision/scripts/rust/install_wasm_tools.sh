@@ -9,7 +9,7 @@ requires \
     git \
     gum \
     rustup
-install_targets_and_tools() {
+install_rust_targets_and_tools() {
     #
     # Install Rust WASM/WASI targets and tools
     #
@@ -29,7 +29,7 @@ main() {
     local EMPTY="[ ] "
     local BIN_DIRECTORY="${1:-/usr/local/bin}"
     local COLOR="${GOLD_FOREGROUND_COLOR:-220}"
-    local TITLE="$(gum style --foreground "${COLOR}" 'WASM') technology"
+    local TITLE="Install $(gum style --foreground "${COLOR}" 'WASM') tools & tech"
     local CHECKMARK="$(gum style --foreground 46 '🗸')"
     gum style \
         --border normal \
@@ -66,7 +66,7 @@ main() {
         echo -e "${MESSAGE}\n" | gum format -t template
     fi
     CHOICES=$(echo "${DATA}" | cut -d':' -f1)
-    gum confirm 'Add Rust targets and tools?' && install_targets_and_tools
+    gum confirm 'Add Rust WASM targets and tools?' && install_rust_targets_and_tools
     # shellcheck disable=SC2046,SC2068,SC2116,SC2154
     CHOSEN=$(gum choose \
         --no-limit \

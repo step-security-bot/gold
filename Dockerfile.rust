@@ -29,7 +29,7 @@ RUN chmod +x /tmp/scripts/* \
         evcxr_repl \
         evcxr_jupyter \
     && evcxr_jupyter --install \
-    && mv /tmp/scripts/install_wasm_runtimes.sh /usr/local/bin/install_wasm_runtimes \
+    && mv /tmp/scripts/install_wasm_tools.sh /usr/local/bin/install_wasm_tools \
     && cleanup
 #
 # %runscript

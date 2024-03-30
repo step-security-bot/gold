@@ -107,7 +107,7 @@ SCRIPTS = \
 	./provision/scripts/notebook/install_extensions.sh \
 	./provision/scripts/notebook/install_nim.sh \
 	./provision/scripts/notebook/install_scala_jupyter_kernel.sh \
-	./provision/scripts/rust/install_wasm_runtimes.sh \
+	./provision/scripts/rust/install_wasm_tools.sh \
 	./.github/actions/build-and-push-image/entrypoint.sh
 FUNCTIONS = \
 	./provision/functions/cleanup \
