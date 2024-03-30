@@ -9,6 +9,19 @@ requires \
     git \
     gum \
     rustup
+install_emscripten() {
+    #
+    # Install Emscripten tools (emsdk and emcc)
+    #
+    git clone https://github.com/emscripten-core/emsdk.git /emsdk
+    cd /emsdk || exit
+    emsdk install latest
+    emsdk activate latest
+    echo "$(gum style --foreground 46 '🗸') Installed $(gum style --foreground 46 Emscripten)"
+    echo 'export EMSDK_QUIET=1' >> "${HOME}/.zshrc"
+    echo 'source "/emsdk/emsdk_env.sh"' >> "${HOME}/.zshrc"
+    cd "${HOME}" || exit
+}
 install_rust_targets_and_tools() {
     #
     # Install Rust WASM/WASI targets and tools
@@ -39,6 +52,7 @@ main() {
         "${TITLE}"
     DATA="""
         Cosmonic:cosmo
+        Emscripten:emcc
         Scale:scale
         Spin:spin
         Wasm3:wasm3
@@ -46,6 +60,7 @@ main() {
         WasmEdge:wasmedge
         Wasmer:wasmer
         Wasmtime:wasmtime
+        WAVM:wavm
         Wazero:wazero
         WEPL:wepl
         WWS:wws
@@ -84,6 +99,10 @@ main() {
                 echo 'export PATH="/root/.cosmo/bin:${PATH}"' >> "${HOME}/.zshrc"
                 export PATH="/root/.cosmo/bin:${PATH}"
                 ;;
+            Emscripten)
+                install_emscripten
+                source "/emsdk/emsdk_env.sh"
+                ;;
             Scale)
                 curl -fsSL https://dl.scale.sh | sh
                 ;;
@@ -94,10 +113,11 @@ main() {
                 cd "${BIN_DIRECTORY}" || exit
                 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
                 rm -frd crt.pem LICENSE README.md spin.sig
+                cd "${HOME}" || exit
                 ;;
             Wasm3)
                 gum spin --title "(1 of 2) Installing Wasm3" -- brew install wasm3
-                echo "$(gum style --foreground 46 '🗸') Installed $(gum style --foreground 46 Wasm3)"
+                echo "${CHECKMARK} Installed $(gum style --foreground 46 Wasm3)"
                 gum spin --title '(2 of 2) Performing Brew cleanup' -- brew cleanup --prune=all
                 ;;
             WasmCloud)
@@ -116,13 +136,10 @@ main() {
                 . "${HOME}/.wasmedge/env"
                 ;;
             Wasmer)
-                PACKAGES='wapm wasmer'
-                local i=1
-                for PACKAGE in ${PACKAGES}; do
-                    gum spin --title "(${i} of 3) Installing ${PACKAGE}" -- brew install "${PACKAGE}"
-                    echo "${CHECKMARK} Installed $(gum style --foreground 46 "${PACKAGE}")"
-                    i=$((i + 1))
-                done
+                gum spin --title "(1 of 3) Installing wapm" -- brew install wapm
+                echo "${CHECKMARK} Installed $(gum style --foreground 46 wapm)"
+                gum spin --title "(2 of 3) Installing wasmer" -- brew install wasmer
+                echo "${CHECKMARK} Installed $(gum style --foreground 46 wasmer)"
                 gum spin --title '(3 of 3) Performing Brew cleanup' -- brew cleanup --prune=all
                 ;;
             Wasmtime)
@@ -132,13 +149,22 @@ main() {
                 export WASMTIME_HOME="${HOME}/.wasmtime"
                 export PATH="${WASMTIME_HOME}/bin:${PATH}"
                 ;;
+            WAVM)
+                local WAVM=${1:-"0.0.0-prerelease-linux"}
+                local FILENAME='wavm.deb'
+                cd /tmp || exit
+                curl -o "${FILENAME}" -LJ "https://github.com/WAVM/WAVM/releases/download/nightly%2F2022-05-14/wavm-${VERSION}.deb"
+                apt-get install -y "./${FILENAME}"
+                rm "./${FILENAME}"
+                cd "${HOME}" || exit
+                ;;
             Wazero)
                 local INSTALL_DIRECTORY=./bin
                 cd /tmp || exit
                 curl https://wazero.io/install.sh | sh
                 mv "${INSTALL_DIRECTORY}/wazero" "${BIN_DIRECTORY}"
-                cd /root || exit
                 rm -frd "${INSTALL_DIRECTORY}"
+                cd "${HOME}" || exit
                 ;;
             WEPL)
                 #
@@ -148,7 +174,7 @@ main() {
                 git clone https://github.com/rylev/wepl "${INSTALL_DIRECTORY}"
                 cd "${INSTALL_DIRECTORY}" || exit
                 cargo install --path . --locked
-                cd /root || exit
+                cd "${HOME}" || exit
                 rm -frd "${INSTALL_DIRECTORY}"
                 ;;
             WWS)
@@ -157,6 +183,7 @@ main() {
                 #
                 cd "${BIN_DIRECTORY}" || exit
                 curl -fsSL https://workers.wasmlabs.dev/install | bash -s -- --local
+                cd "${HOME}" || exit
                 ;;
             *)
                 exit 1
