@@ -15,8 +15,8 @@ install_emscripten() {
     #
     git clone https://github.com/emscripten-core/emsdk.git /emsdk
     cd /emsdk || exit
-    emsdk install latest
-    emsdk activate latest
+    ./emsdk install latest
+    ./emsdk activate latest
     echo "$(gum style --foreground 46 '🗸') Installed $(gum style --foreground 46 Emscripten)"
     echo 'export EMSDK_QUIET=1' >> "${HOME}/.zshrc"
     echo 'source "/emsdk/emsdk_env.sh"' >> "${HOME}/.zshrc"
@@ -150,7 +150,7 @@ main() {
                 export PATH="${WASMTIME_HOME}/bin:${PATH}"
                 ;;
             WAVM)
-                local WAVM=${1:-"0.0.0-prerelease-linux"}
+                local VERSION=${1:-"0.0.0-prerelease-linux"}
                 local FILENAME='wavm.deb'
                 cd /tmp || exit
                 curl -o "${FILENAME}" -LJ "https://github.com/WAVM/WAVM/releases/download/nightly%2F2022-05-14/wavm-${VERSION}.deb"
