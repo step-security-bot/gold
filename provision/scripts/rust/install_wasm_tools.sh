@@ -36,9 +36,6 @@ install_rust_targets_and_tools() {
         wasm-tools
 }
 main() {
-    #
-    # Use gum to select runtimes
-    #
     local EMPTY="[ ] "
     local BIN_DIRECTORY="${1:-/usr/local/bin}"
     local COLOR="${GOLD_FOREGROUND_COLOR:-220}"
@@ -87,7 +84,6 @@ main() {
         --no-limit \
         --cursor-prefix="${EMPTY}" \
         --header="Please select items to install" \
-        --selected="${SELECTED}" \
         --selected.foreground="${COLOR}" \
         --selected-prefix="[X] " \
         --unselected-prefix="${EMPTY}" \
