@@ -88,6 +88,7 @@ SCRIPTS = \
 	./provision/scripts/dev/install_musl.sh \
 	./provision/scripts/dev/install_nix.sh \
 	./provision/scripts/dev/install_ohmyzsh.sh \
+	./provision/scripts/dev/install_xr0.sh \
 	./provision/scripts/gold/install_aeneas.sh \
 	./provision/scripts/gold/install_coq.sh \
 	./provision/scripts/gold/install_creusot.sh \
