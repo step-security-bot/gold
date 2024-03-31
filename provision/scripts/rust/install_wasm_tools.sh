@@ -188,6 +188,8 @@ main() {
                 ;;
         esac
         echo "$(gum style --foreground 46 '🗸') Installed $(gum style --foreground 46 "${CHOICE}")"
+        echo ''
+        echo '> Make new commands available in this shell by running `source ~/.zshrc`' | gum format
     done
 }
 main "$@"
