@@ -42,7 +42,7 @@ main() {
     local EMPTY="[ ] "
     local BIN_DIRECTORY="${1:-/usr/local/bin}"
     local COLOR="${GOLD_FOREGROUND_COLOR:-220}"
-    local TITLE="Install $(gum style --foreground "${COLOR}" 'WASM') tools & tech"
+    local TITLE="$(gum style --foreground "${COLOR}" 'Install') WASM tools & tech"
     local CHECKMARK="$(gum style --foreground 46 '🗸')"
     gum style \
         --border normal \
@@ -72,7 +72,7 @@ main() {
         COMMAND=$(echo "${LINE}" | cut -d':' -f2)
         if is_command "${COMMAND}"; then
             COUNT=$((COUNT + 1))
-            MESSAGE+="    ${CHECKMARK} ${TECHNOLOGY} ($(gum style --faint ${COMMAND}))\n"
+            MESSAGE+="    ${CHECKMARK} ${TECHNOLOGY} ($(gum style --faint "${COMMAND}"))\n"
             DATA=$(echo "${DATA}" | sed "/${TECHNOLOGY}:${COMMAND}/d")
         fi
     done
@@ -101,6 +101,7 @@ main() {
                 ;;
             Emscripten)
                 install_emscripten
+                # shellcheck disable=SC1091
                 source "/emsdk/emsdk_env.sh"
                 ;;
             Scale)
@@ -117,7 +118,6 @@ main() {
                 ;;
             Wasm3)
                 gum spin --title "(1 of 2) Installing Wasm3" -- brew install wasm3
-                echo "${CHECKMARK} Installed $(gum style --foreground 46 Wasm3)"
                 gum spin --title '(2 of 2) Performing Brew cleanup' -- brew cleanup --prune=all
                 ;;
             WasmCloud)
@@ -137,9 +137,7 @@ main() {
                 ;;
             Wasmer)
                 gum spin --title "(1 of 3) Installing wapm" -- brew install wapm
-                echo "${CHECKMARK} Installed $(gum style --foreground 46 wapm)"
-                gum spin --title "(2 of 3) Installing wasmer" -- brew install wasmer
-                echo "${CHECKMARK} Installed $(gum style --foreground 46 wasmer)"
+                gum spin --title "(2 of 3) Installing wasmer (this can take a while...)" -- brew install wasmer
                 gum spin --title '(3 of 3) Performing Brew cleanup' -- brew cleanup --prune=all
                 ;;
             Wasmtime)
@@ -189,6 +187,7 @@ main() {
                 exit 1
                 ;;
         esac
+        echo "$(gum style --foreground 46 '🗸') Installed $(gum style --foreground 46 "${CHOICE}")"
     done
 }
 main "$@"
