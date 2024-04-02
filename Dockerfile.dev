@@ -39,13 +39,12 @@ RUN ln -snf "/usr/share/zoneinfo/${TZ}" /etc/localtime \
     && echo "${TZ}" > /etc/timezone \
     && mkdir -p \
         "${HOME}/.ssh" \
-        /tmp/scripts \
-        /usr/local/bin/fn
+        /tmp/scripts
 #
 # %files
 #
 COPY --chmod=0755 ./provision/scripts/dev/* /tmp/scripts
-COPY --chmod=0755 ./provision/functions/* /usr/local/bin/fn
+COPY --chmod=0755 ./provision/functions/* /usr/local/bin
 ADD https://github.com/jhwohlgemuth/my-shell-setup.git "${DOTFILES}"
 ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz" /tmp
 ADD "${S6_OVERLAY_GITHUB}/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz" /tmp
