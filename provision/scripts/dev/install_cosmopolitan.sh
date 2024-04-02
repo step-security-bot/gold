@@ -22,5 +22,6 @@ main() {
     # shellcheck disable=SC2016
     echo 'export PATH="${PATH}:/cosmopolitan/bin"' >> "${HOME}/.zshrc"
     export PATH="${PATH}:/cosmopolitan/bin"
+    sh -c "echo ':APE:M::MZqFpD::/usr/bin/ape:' >/proc/sys/fs/binfmt_misc/register"
 }
 main "$@"
