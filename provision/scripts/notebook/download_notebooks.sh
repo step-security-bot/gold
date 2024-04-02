@@ -39,7 +39,7 @@ main() {
     """
     # shellcheck disable=SC2010
     NOTEBOOKS=$(ls "${NOTEBOOKS_DIR}" | grep 'ipynb$' | cut -d'.' -f1)
-    EXISTING="$(echo "${DATA}" | grep "${NOTEBOOKS}$" | cut -d':' -f1)"
+    EXISTING=$(echo "${DATA}" | grep ":${NOTEBOOKS}$" | cut -d':' -f1)
     for NOTEBOOK in ${EXISTING}; do
         DATA=$(echo "${DATA}" | sed "/${NOTEBOOK}:/d")
     done
