@@ -35,7 +35,16 @@ So what, big deal, who cares?
 
 Things you can do with Gold
 ---------------------------
-> 🚧 UNDER CONSTRUCTION
+> [!TIP]
+> See the [examples directory](./examples/) for details on all the things you can do with Gold.
+
+- Write, run, and debug [Coq]() code from within a browser-based instance of VSCode <sup>[3](#3)</sup>
+- Work with modern [Rust]()-based projects to write provably correct software
+- Spin up feature-rich development environments for use from a terminal or browser-based IDE <sup>[3](#3)</sup>
+- Work with [WebAssembly]()
+- Quickly and easily compare multiple languages using interative notebooks
+- 🚧 UNDER CONSTRUCTION
+
 
 Container Customization
 -----------------------
@@ -61,7 +70,7 @@ The following environment variables are available to customize containers:
   - Default: `password`
 
 > [!TIP]
-> Change environment variables with the `--env` parameter <sup>[3](#3)</sup> (ex. `docker run -it --env CODE_SERVER_PORT=8080 <image>`)
+> Change environment variables with the `--env` parameter <sup>[4](#4)</sup> (ex. `docker run -it --env CODE_SERVER_PORT=8080 <image>`)
 
 Contributing
 ------------
@@ -84,5 +93,9 @@ Contributing
 > The default code-server port can be changed with the `CODE_SERVER_PORT` environment variable. See the [Container Customization section](#container-customization) for more details.
 
 [3]
+---
+
+
+[4]
 ---
 > See [docker run documentation](https://docs.docker.com/engine/reference/commandline/container_run/)

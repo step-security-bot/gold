@@ -26,6 +26,7 @@ ARG S6_OVERLAY_GITHUB=https://github.com/just-containers/s6-overlay
 #
 ENV VERSION="${VERSION}"
 ENV TZ=America/New_York
+ENV SHELL=/usr/bin/zsh
 ENV TERM=xterm-256color
 ENV DOTFILES="${HOME}/.dotfiles"
 ENV PATH="${PATH}:/usr/local/bin/fn"
