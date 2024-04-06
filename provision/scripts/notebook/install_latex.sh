@@ -68,7 +68,6 @@ main() {
     ]
 }
 EOM
-    bat "${CODE_SERVER_SETTINGS}"
     jq -s '.[0] * .[1]' "${CODE_SERVER_SETTINGS}" "${LATEX_WORKSHOP_SETTINGS}" > "${TEMP_SETTINGS}"
     mv "${TEMP_SETTINGS}" "${CODE_SERVER_SETTINGS}"
 }
