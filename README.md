@@ -2,6 +2,7 @@ GOLD &nbsp;
 ====
 [![CodeFactor](https://www.codefactor.io/repository/github/jhwohlgemuth/gold/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/jhwohlgemuth/gold)
 [![Code Size](https://img.shields.io/github/languages/code-size/jhwohlgemuth/gold.svg?style=for-the-badge)](#quick-start)
+
 > Gold is a containerized environment for working on provably correct software [and more](#things-you-can-do-with-gold)
 
 Quick Start

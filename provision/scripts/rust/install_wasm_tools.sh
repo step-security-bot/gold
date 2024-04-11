@@ -26,14 +26,18 @@ install_rust_targets_and_tools() {
     #
     # Install Rust WASM/WASI targets and tools
     #
+    gum spin --title 'Adding WASM Unknown target' -- rustup target add wasm32-unknown-unknown
     gum spin --title 'Adding WASI target' -- rustup target add wasm32-wasi
-    gum spin --title 'Adding WASM Unknown target' -- rustup target add wasm32-unknown-unknown --toolchain nightly
-    gum spin --title 'Install WASM/WASI related crates' -- cargo install \
+    gum spin --title 'Installing WASM/WASI related crates' -- cargo install \
         cargo-wasi \
         cargo-wasix \
         wasm-bindgen-cli \
         wasm-pack \
         wasm-tools
+}
+under_construction() {
+    local CHOICE="${1:-''}"
+    echo "> :construction: Please pardon our dust. Installing ${CHOICE} is still under construction." | gum format -t emoji
 }
 main() {
     local EMPTY="[ ] "
@@ -50,8 +54,10 @@ main() {
     DATA="""
         Cosmonic:cosmo
         Emscripten:emcc
+        MoonBit:moon
         Scale:scale
         Spin:spin
+        waPC:apex
         Wasm3:wasm3
         WasmCloud:wash
         WasmEdge:wasmedge
@@ -100,6 +106,9 @@ main() {
                 # shellcheck disable=SC1091
                 source "/emsdk/emsdk_env.sh"
                 ;;
+            MoonBit)
+                /bin/bash -c "$(curl -fsSL https://cli.moonbitlang.com/ubuntu_x86_64_moon_setup.sh)"
+                ;;
             Scale)
                 curl -fsSL https://dl.scale.sh | sh
                 ;;
@@ -111,6 +120,9 @@ main() {
                 curl -fsSL https://developer.fermyon.com/downloads/install.sh | bash
                 rm -frd crt.pem LICENSE README.md spin.sig
                 cd "${HOME}" || exit
+                ;;
+            waPC)
+                under_construction "${CHOICE}"
                 ;;
             Wasm3)
                 gum spin --title "(1 of 2) Installing Wasm3" -- brew install wasm3
