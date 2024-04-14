@@ -8,6 +8,7 @@ with pkgs; [
     du-dust
     grex
     gum
+    just
     ripgrep
     thefuck
     up
