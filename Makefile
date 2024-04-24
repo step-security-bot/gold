@@ -106,6 +106,7 @@ SCRIPTS = \
 	./provision/scripts/notebook/install_elixir_jupyter_kernel.sh \
 	./provision/scripts/notebook/install_elixir.sh \
 	./provision/scripts/notebook/install_extensions.sh \
+	./provision/scripts/notebook/install_go_jupyter_kernel.sh \
 	./provision/scripts/notebook/install_latex.sh \
 	./provision/scripts/notebook/install_lpython.sh \
 	./provision/scripts/notebook/install_nim.sh \
