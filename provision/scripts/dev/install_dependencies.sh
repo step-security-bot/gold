@@ -4,7 +4,7 @@ apt-get update
 #
 # Install essential dependencies
 #
-apt-get install --no-install-recommends -y \
+apt-get install --no-install-recommends --yes \
     binfmt-support \
     build-essential \
     cmake \
@@ -25,6 +25,7 @@ apt-get install --no-install-recommends -y \
     python3-setuptools \
     rlwrap \
     screen \
+    software-properties-common \
     stow \
     tree \
     tzdata \

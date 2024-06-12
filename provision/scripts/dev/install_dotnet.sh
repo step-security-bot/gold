@@ -14,7 +14,7 @@ main() {
     #
     local VERSION="${1:-"7.0"}"
     apt-get update
-    apt-get install --no-install-recommends -y \
+    apt-get install --no-install-recommends --yes \
         "dotnet-sdk-${VERSION}" \
         "dotnet-runtime-${VERSION}" \
         powershell

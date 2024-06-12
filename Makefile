@@ -81,6 +81,7 @@ SCRIPTS = \
 	./provision/scripts/dev/configure_ohmyzsh.sh \
 	./provision/scripts/dev/install_apptainer.sh \
 	./provision/scripts/dev/install_cosmopolitan.sh \
+	./provision/scripts/dev/install_cuda.sh \
 	./provision/scripts/dev/install_dependencies.sh \
 	./provision/scripts/dev/install_docker.sh \
 	./provision/scripts/dev/install_dotnet.sh \
