@@ -9,7 +9,7 @@ main() {
     #
     # Install oh-my-zsh
     #
-    sh -c "$(curl https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
+    sh -c "$(curl -L https://github.com/deluan/zsh-in-docker/releases/download/v1.2.0/zsh-in-docker.sh)" -- \
         -x \
         -p encode64 \
         -p fzf \
