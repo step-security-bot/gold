@@ -1,12 +1,16 @@
 #! /bin/bash
 set -e
 
-requires curl
+requires \
+    curl \
+    git \
+    zsh
 main() {
     #
     # Install oh-my-zsh
     #
     sh -c "$(curl https://raw.githubusercontent.com/deluan/zsh-in-docker/master/zsh-in-docker.sh)" -- \
+        -x \
         -p encode64 \
         -p fzf \
         -p git \
