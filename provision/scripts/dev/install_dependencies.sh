@@ -25,6 +25,7 @@ apt-get install --no-install-recommends --yes \
     python3-setuptools \
     rlwrap \
     screen \
+    software-properties-common \
     stow \
     tree \
     tzdata \
