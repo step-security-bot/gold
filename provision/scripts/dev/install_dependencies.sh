@@ -30,5 +30,6 @@ apt-get install --no-install-recommends --yes \
     tree \
     tzdata \
     unzip \
+    xvfb \
     zip \
     zsh
