@@ -91,6 +91,7 @@ SCRIPTS = \
 	./provision/scripts/dev/install_ohmyzsh.sh \
 	./provision/scripts/dev/install_pinokio.sh \
 	./provision/scripts/dev/install_xr0.sh \
+	./provision/scripts/dev/start_pinokio.sh \
 	./provision/scripts/gold/install_aeneas.sh \
 	./provision/scripts/gold/install_coq.sh \
 	./provision/scripts/gold/install_creusot.sh \

@@ -28,11 +28,13 @@ ENV VERSION="${VERSION}"
 ENV TZ=America/New_York
 ENV SHELL=/usr/bin/zsh
 ENV TERM=xterm-256color
-ENV DISPLAY=100
 ENV DOTFILES="${HOME}/.dotfiles"
 ENV PATH="${PATH}:/usr/local/bin/fn"
 ENV PATH="${PATH}:${HOME}/.nix-profile/bin"
 ENV PATH="${PATH}:/root/.pixi/bin"
+# Used for Pinokio
+ENV DISPLAY=:100
+ENV GRADIO_SERVER_NAME="0.0.0.0"
 #
 # %setup
 #
@@ -70,6 +72,7 @@ RUN /tmp/scripts/install_dependencies.sh \
     && mv /tmp/scripts/install_musl.sh /usr/local/bin/install_musl \
     && mv /tmp/scripts/install_pinokio.sh /usr/local/bin/install_pinokio \
     && mv /tmp/scripts/install_xr0.sh /usr/local/bin/install_xr0 \
+    && mv /tmp/scripts/start_pinokio.sh /usr/local/bin/start_pinokio \
     && /usr/bin/pwsh -Command /tmp/scripts/Install-Modules.ps1 \
     && /tmp/scripts/configure_ohmyzsh.sh \
     && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" \

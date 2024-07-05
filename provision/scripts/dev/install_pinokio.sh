@@ -2,7 +2,7 @@
 set -e
 
 requires \
-    xvfb
+    Xvfb
 main() {
     #
     # Install dependencies
@@ -12,7 +12,7 @@ main() {
         libasound2
     #
     # Install Pinokio browser
-    # (Note: Need to forwaard ports 42000 & 7860)
+    # (Note: Need to forwaard ports 7860, 8188, 42000, & 42421)
     #
     # shellcheck disable=SC2155
     local PWD="$(pwd)"
