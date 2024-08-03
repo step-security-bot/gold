@@ -7,6 +7,7 @@ apt-get update
 apt-get install --no-install-recommends --yes \
     binfmt-support \
     build-essential \
+    busybox-syslogd \
     cmake \
     curl \
     dos2unix \
