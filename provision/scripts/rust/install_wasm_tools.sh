@@ -57,6 +57,7 @@ main() {
         MoonBit:moon
         Scale:scale
         Spin:spin
+        WANIX:wanix
         waPC:apex
         Wasm3:wasm3
         WasmCloud:wash
@@ -171,6 +172,12 @@ main() {
                 mv "${INSTALL_DIRECTORY}/wazero" "${BIN_DIRECTORY}"
                 rm -frd "${INSTALL_DIRECTORY}"
                 cd "${HOME}" || exit
+                ;;
+            WANIX)
+                #
+                # Experimental, web-native, Unix-like operating and development environment
+                #
+                bash -c "$(curl -sSL https://raw.githubusercontent.com/tractordev/wanix/main/install.sh)"
                 ;;
             WEPL)
                 #
