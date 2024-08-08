@@ -62,7 +62,7 @@ RUN chmod +x /tmp/scripts/* \
 # %runscript
 #
 WORKDIR /root/dev
-HEALTHCHECK --interval=5m --timeout=30s --start-period=10s --retries=3 CMD \
-    curl --fail --insecure "https://localhost:${CODE_SERVER_PORT}" || exit 1
+HEALTHCHECK --interval=5m --timeout=30s --start-period=10s --retries=3 \
+    CMD curl --fail --insecure "https://localhost:${CODE_SERVER_PORT}" || exit 1
 ENTRYPOINT [ "/init" ]
 CMD ["/bin/zsh"]

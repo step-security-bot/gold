@@ -2,7 +2,6 @@ name: GOLD
 
 permissions:
   contents: read
-  packages: write
 
 env:
   REGISTRY: ghcr.io
@@ -27,6 +26,8 @@ on:
 
 jobs:
   build-and-push:
+    permissions:
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - run: echo "${{ github.actor }}/${{ env.IMAGE_NAME }} will be built and pushed to ${{ env.REGISTRY }}"
